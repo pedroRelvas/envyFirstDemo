@@ -13,7 +13,7 @@ function App() {
     <div className={styles.main}>
       {mode == 'start' && <StartMenu onStartClick={() => setMode('city')}></StartMenu>}
 
-      {mode == 'city' && <>City Mode</>}
+      {mode == 'city' && <CityMode></CityMode>}
 
       {mode == 'trip' && <>Trip Mode</>}
 
