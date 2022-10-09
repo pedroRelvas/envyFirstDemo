@@ -1,26 +1,30 @@
 import { useState, useEffect } from 'react'
 import { useTransition, animated, config } from 'react-spring'
-
+import styles from "./styles.module.scss";
+import ListGroup from 'react-bootstrap/ListGroup';
 
 const StartMenu = ({ onStartClick }) => {
     
+    /* const [items, setItems] = useState([
+        <h4 onClick={onStartClick}>Continuar</h4>,
+        <h4>Novo Jogo</h4>,
+        <h4>Estatisticas</h4>,
+        <h4>Options</h4>,
+        <h4>Créditos</h4>,
+        <h4>Exit</h4>
+    ]) */
+
     const [items, setItems] = useState([
-        <button onClick={onStartClick}>Continuar</button>,
-        <button onClick={onStartClick}>Novo Jogo</button>,
-        <button onClick={onStartClick}>Estatisticas</button>,
-        <button>Options</button>,
-        <button>Créditos</button>,
-        <button>Exit</button>
+        'Continuar',
+        'Novo Jogo',
+        'Estatisticas',
+        'Options',
+        'Créditos',
+        'Exit'
     ])
 
 
-/* //transform: "translate3d(25%, 0px, 0px)" },
-        //.to(y => `translate3d(0,${y}px,0)`), */
-
-        let a = 250;
-
     const listTransitions = useTransition(items, {
-        delay: a++,
         config: config.gentle,
         from: { opacity: 0, transform: "translate3d(-25%, 0px, 0px)" },
         enter: { opacity: 1, transform: "translate3d(0%, 0px, 0px)" },
@@ -29,11 +33,13 @@ const StartMenu = ({ onStartClick }) => {
       });
 
     return (
-        <ul>
-        {listTransitions((styles, item) => (
-          <animated.li style={styles}>{item}</animated.li>
-        ))}
-      </ul>
+        <>
+        <ListGroup as="ul">
+            {listTransitions((stylesOfTransition, item) => (
+                <animated.button style={stylesOfTransition} className={styles.startButton}>{item}</animated.button>
+            ))}
+        </ListGroup>
+      </>
     );
 };
 
