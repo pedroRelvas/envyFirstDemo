@@ -1,7 +1,8 @@
-import './App.css';
+import './App.scss';
 import styles from './styles/styles.module.scss';
 import { useState } from 'react';
-import StartMenu from './components/StartMenu/StartMenu'
+import StartMenu from './components/StartMenu/StartMenu';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
@@ -10,18 +11,28 @@ function App() {
 
   
   return (
-    <div className={styles.main}>
-      {mode == 'start' && <StartMenu onStartClick={() => setMode('city')}></StartMenu>}
+    <div class={`container-fluid min-vh-100 d-flex flex-column ${styles.mainBackground}`}>
 
-      {mode == 'city' && <CityMode></CityMode>}
+      <div class="row">
+        <div class="col">
+            <h1 class={`${styles.h1} mb-3`}>Silêncio</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+          {mode == 'start' && <StartMenu gameTitle="Silêncio"></StartMenu>}
 
-      {mode == 'trip' && <>Trip Mode</>}
+          {/* {mode == 'city' && <CityMode></CityMode>} */}
 
-      {mode == 'dialog' && <>Dialog Mode</>}
+          {mode == 'trip' && <>Trip Mode</>}
 
-      {mode == 'battle' && <>Battle Mode</>}
+          {mode == 'dialog' && <>Dialog Mode</>}
 
-      {mode == 'gameOver' && <>Game Over</>}
+          {mode == 'battle' && <>Battle Mode</>}
+
+          {mode == 'gameOver' && <>Game Over</>}
+        </div>
+      </div>
     </div>
   );
 }
