@@ -1,5 +1,8 @@
 .mainBackground{
-    background: black
+    background-image: url("../../../images/backgrounds/menuBackground.png");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
 }
 
 h1{

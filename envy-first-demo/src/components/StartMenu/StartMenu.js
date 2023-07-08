@@ -23,7 +23,6 @@ const StartMenu = ({ onStartClick }) => {
         'Exit'
     ])
 
-
     const listTransitions = useTransition(items, {
         config: config.gentle,
         from: { opacity: 0, transform: "translate3d(-25%, 0px, 0px)" },
@@ -34,6 +33,9 @@ const StartMenu = ({ onStartClick }) => {
 
     return (
         <>
+        <nav>
+            
+        </nav>
         <ListGroup as="ul">
             {listTransitions((stylesOfTransition, item) => (
                 <animated.button style={stylesOfTransition} className={styles.startButton}>{item}</animated.button>
